@@ -1,22 +1,24 @@
 import './App.css';
-import Nav from './components/Nav'
-import ContentWrapper from './components/ContentWrapper'
-import Footer from './components/Footer'
-import { useSelector, useDispatch } from 'react-redux'
-import { darkMode, lightMode } from './features/modeSlice'
+import Nav from './components/Nav';
+import ContentWrapper from './components/ContentWrapper';
+import Footer from './components/Footer';
+import { useSelector, useDispatch } from 'react-redux';
+import { darkModeSwitch, lightModeSwitch } from './features/modeSlice';
 
 function App() {
-  const dispatch = useDispatch()
-  const mode = useSelector((state) => state.mode)
-
-  const toggleMode = () => {
-    mode.darkMode ? dispatch(lightMode()) : dispatch(darkMode())
+  const dispatch = useDispatch();
+  const modeState = useSelector((state) => state.mode);
+  const { darkMode } = modeState;
+  const modeHandler = () => {
+    darkMode ? dispatch(lightModeSwitch()) : dispatch(darkModeSwitch())
   }
-  
+
   return (
-    <div style={{ backgroundColor: mode.color1, color: 'white' }} className="App">
+    <div style={{ backgroundColor: modeState.color5, color: 'white' }} className="App">
       <Nav />
-      <button onClick={toggleMode}>{ mode.darkMode ? 'Light Mode' : 'Dark Mode' }</button>
+      <button onClick={modeHandler}>
+        { darkMode ? 'Light Mode' : 'Dark Mode' }
+      </button>
       <ContentWrapper />
       <Footer />
     </div>

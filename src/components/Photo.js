@@ -1,11 +1,13 @@
-import React from 'react'
-function Photo() {
+import React from 'react';
+import { useSelector } from 'react-redux';
 
+function Photo() {
+    const modeState = useSelector((state)=>state.mode)
     return (
-        <div className="Photo">
-            <img src='https://placekitten.com/200/300' alt="author" />
+        <div className="Photo" style={{'backgroundColor': modeState.color3}}>
+            <img src={modeState.photo} alt="author" />
         </div>
     )
 }
 
-export default Photo
+export default Photo;

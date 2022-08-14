@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const mode1 = {
     darkMode: true,
@@ -20,21 +20,21 @@ const mode2 = {
     photo: 'https://placekitten.com/200/300'
 }
 
-const initialState = mode2
+const initialState = mode2;
 
 export const modeSlice = createSlice({
     name: 'mode',
     initialState,
     reducers: {
-        lightMode: () => {
-            return mode2
+        lightModeSwitch: () => {
+            return mode2;
         },
-        darkMode: () => {
-            return mode1
+        darkModeSwitch: () => {
+            return mode1;
         }
     }
 })
 
-export const { lightMode, darkMode } = modeSlice.actions
+export const { lightModeSwitch, darkModeSwitch } = modeSlice.actions;
 
-export default modeSlice.reducer
+export default modeSlice.reducer;

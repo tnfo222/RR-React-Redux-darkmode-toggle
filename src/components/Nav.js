@@ -1,11 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import NavLink from './NavLink'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import NavLink from './NavLink';
 
 function Nav() {
-    const mode = useSelector((state) => state.mode)
+    const modeState = useSelector((state) => state.mode)
     return (
-        <div className="Nav" style={{'backgroundColor': mode.color1}}>
+        <div className="Nav" style={{'backgroundColor': modeState.color4}}>
             <NavLink content="Blog" />
             <NavLink content="About Me" />
             <NavLink content="Projects" />
